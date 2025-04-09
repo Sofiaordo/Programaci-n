@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        final double IVA = 0.19;
+        final double[] precios = {25000, 45000, 65000};
+        String[] prendas = {"Camisetas", "Pantalones", "Chaquetas"};
+        int[] cantidades = new int[3];
+        double totalGeneral = 0;
+
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Ingrese cantidad de " + prendas[i] + ": ");
+            cantidades[i] = sc.nextInt();
+
+            double subtotal = precios[i] * cantidades[i];
+            double iva = subtotal * IVA;
+            double descuento = calcularDescuento(subtotal, cantidades[i]);
+            double total = subtotal + iva - descuento;
+
+            totalGeneral += total;
+            System.out.printf("%s -> Subtotal: $%.2f, IVA: $%.2f, Descuento: $%.2f, Total: $%.2f%n",
+                              prendas[i], subtotal, iva, descuento, total);
+        }
+
+        System.out.println("Total a pagar: $" + totalGeneral);
+    }
+
+    public static double calcularDescuento(double subtotal, int cantidad) {
+        return cantidad >= 5 ? subtotal * 0.15 : (cantidad >= 3 ? subtotal * 0.10 : 0);
+    }
+}
