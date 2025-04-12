@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String nombre;
+        int estadoCivil;
+
+        System.out.print("Ingrese el nombre de la persona: ");
+        nombre = scanner.nextLine();
+
+        System.out.print("Ingrese el estado civil de la persona:\n1. Soltero\n2. Casado\n3. Separado\n4. Viudo\n5. Unión libre\n");
+        estadoCivil = scanner.nextInt();
+
+        switch (estadoCivil) {
+            case 1:
+                System.out.println(nombre + " es solter@");
+                break;
+            case 2:
+                System.out.println(nombre + " es casad@");
+                break;
+            case 3:
+                System.out.println(nombre + " es separad@");
+                break;
+            case 4:
+                System.out.println(nombre + " es viud@");
+                break;
+            case 5:
+                System.out.println(nombre + " está en unión libre");
+                break;
+            default:
+                System.out.println("Estado civil no válido");
+                break;
+        }
+
+        scanner.close();
+    }
+}
