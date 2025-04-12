@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numeroEntrada = 0;
+        int resultadoFactorial = 1;
+        int opcion;
+
+        do {
+            System.out.println("\nIngrese la opción que desee realizar:");
+            System.out.println("1. Calcular factorial");
+            System.out.println("2. Determinar si es par o impar");
+            System.out.println("3. Terminar");
+            System.out.print("Opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingrese un número para calcularle el factorial: ");
+                    numeroEntrada = scanner.nextInt();
+                    resultadoFactorial = 1;
+                    for (int i = 1; i <= numeroEntrada; i++) {
+                        resultadoFactorial *= i;
+                    }
+                    System.out.println(resultadoFactorial + " es el factorial de " + numeroEntrada);
+                    break;
+                case 2:
+                    System.out.print("Ingrese un número para determinar si es par o impar: ");
+                    numeroEntrada = scanner.nextInt();
+                    if (numeroEntrada % 2 == 0) {
+                        System.out.println(numeroEntrada + " es par");
+                    } else {
+                        System.out.println(numeroEntrada + " es impar");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Programa finalizado.");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente nuevamente.");
+                    break;
+            }
+
+        } while (opcion != 3);
+
+        scanner.close();
+    }
+}
